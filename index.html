@@ -3,49 +3,110 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Schoology Clone</title>
-    
-    <!-- Link to your external CSS file -->
+    <title>Schoology Clone</title>
     <link rel="stylesheet" href="style.css">
-    
-    <!-- Link to your external JS file (defer ensures it loads after the HTML) -->
     <script src="script.js" defer></script>
 </head>
 <body>
 
-    <!-- Top Nav -->
-    <div class="navbar">
-        <a href="#">COURSES</a>
-        <a href="#">GROUPS</a>
-        <a href="#">RESOURCES</a>
-        <a href="#">GRADES</a>
-    </div>
+    <!-- Top Navigation -->
+    <nav class="navbar">
+        <div class="nav-left">
+            <div class="logo">S</logo>
+            <div class="nav-links">
+                <a href="#">COURSES</a>
+                <a href="#">GROUPS</a>
+                <a href="#">RESOURCES</a>
+                <a href="#">GRADES</a>
+            </div>
+        </div>
+        <div class="nav-right">
+            <div class="search-bar">
+                <input type="text" placeholder="Search...">
+            </div>
+            <div class="nav-links">
+                <a href="#">Profile</a>
+            </div>
+        </div>
+    </nav>
 
+    <!-- Main 3-Column Layout -->
     <div class="container">
-        <!-- Left Sidebar -->
-        <div class="sidebar">
-            <h3>Recent Activity</h3>
+        
+        <!-- Left Column: Menu -->
+        <aside class="sidebar">
             <ul>
-                <li>Assignment 1: Due Friday</li>
-                <li>History Test Graded</li>
-                <li>New Discussion Post</li>
+                <li><a href="#" class="active">Recent Activity</a></li>
+                <li><a href="#">Course Dashboard</a></li>
+                <li><a href="#">Calendar</a></li>
+                <li><a href="#">Messages</a></li>
             </ul>
-        </div>
+        </aside>
 
-        <!-- Main Feed -->
-        <div class="main-content">
-            <h2>Course Dashboard</h2>
+        <!-- Center Column: Feed -->
+        <main class="main-feed">
             
-            <div class="card course-card">
-                <h3>Introduction to Computer Science</h3>
-                <p>Welcome to the new semester! Please check the syllabus.</p>
+            <!-- Update Box -->
+            <div class="post-box">
+                <textarea placeholder="Post an update..."></textarea>
+                <div class="post-actions">
+                    <button class="btn-primary" id="postBtn">Post</button>
+                </div>
             </div>
 
-            <div class="card course-card">
-                <h3>World History</h3>
-                <p>Chapter 4 Reading is now available.</p>
+            <!-- Activity Post 1 -->
+            <div class="feed-card">
+                <div class="feed-header">
+                    <div class="profile-pic"></div>
+                    <div>
+                        <div class="feed-title">Mr. Smith > Computer Science 101</div>
+                        <div class="feed-time">Today at 8:45 AM</div>
+                    </div>
+                </div>
+                <div class="feed-content">
+                    <p>Don't forget that your final projects are due this Friday. Please submit the GitHub repository link in the assignment dropbox.</p>
+                </div>
             </div>
-        </div>
+
+            <!-- Activity Post 2 -->
+            <div class="feed-card">
+                <div class="feed-header">
+                    <div class="profile-pic"></div>
+                    <div>
+                        <div class="feed-title">Mrs. Johnson > World History</div>
+                        <div class="feed-time">Yesterday at 3:30 PM</div>
+                    </div>
+                </div>
+                <div class="feed-content">
+                    <p>I have uploaded the study guide for next week's exam on the Industrial Revolution. You can find it in the Resources folder.</p>
+                </div>
+            </div>
+        </main>
+
+        <!-- Right Column: Reminders -->
+        <aside class="right-sidebar">
+            
+            <div class="widget">
+                <h3>Overdue</h3>
+                <div class="upcoming-item">
+                    <a href="#">Chapter 4 Quiz</a>
+                    <div class="overdue">Yesterday, 11:59 PM</div>
+                </div>
+            </div>
+
+            <div class="widget">
+                <h3>Upcoming</h3>
+                <div class="upcoming-item">
+                    <a href="#">Final CS Project</a>
+                    <div class="feed-time">Friday, 11:59 PM</div>
+                </div>
+                <div class="upcoming-item">
+                    <a href="#">History Read: Pages 40-55</a>
+                    <div class="feed-time">Monday, 8:00 AM</div>
+                </div>
+            </div>
+
+        </aside>
     </div>
 
 </body>
