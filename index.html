@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Classroom Hub, a classroom dashboard prototype for GitHub Pages.">
+  <meta name="theme-color" content="#0f172a">
+  <title>Classroom Hub</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <div class="app-shell">
+    <button class="mobile-overlay" id="mobile-overlay" type="button" aria-label="Close navigation" hidden></button>
+
+    <aside class="sidebar" id="sidebar" aria-label="Primary navigation">
+      <div class="brand-row">
+        <a class="brand" href="#dashboard" data-route="dashboard" aria-label="Classroom Hub home">
+          <span class="brand-mark">CH</span>
+          <span><strong>Classroom Hub</strong><small>Student portal</small></span>
+        </a>
+        <button class="icon-button sidebar-close" id="sidebar-close" type="button" aria-label="Close navigation">×</button>
+      </div>
+
+      <nav class="nav-list">
+        <button class="nav-item active" type="button" data-route="dashboard"><span>⌂</span>Home</button>
+        <button class="nav-item" type="button" data-route="courses"><span>▤</span>Courses</button>
+        <button class="nav-item" type="button" data-route="calendar"><span>□</span>Calendar</button>
+        <button class="nav-item" type="button" data-route="grades"><span>✓</span>Grades</button>
+        <button class="nav-item" type="button" data-route="messages"><span>✉</span>Messages</button>
+        <button class="nav-item" type="button" data-route="settings"><span>⚙</span>Settings</button>
+      </nav>
+
+      <div class="student-card">
+        <div class="avatar">CK</div>
+        <div><strong>Caleb Kritzar</strong><small>Student account</small></div>
+      </div>
+    </aside>
+
+    <div class="content-column">
+      <header class="topbar">
+        <button class="icon-button menu-button" id="menu-button" type="button" aria-label="Open navigation">☰</button>
+        <label class="search-box">
+          <span aria-hidden="true">⌕</span>
+          <span class="sr-only">Search courses</span>
+          <input id="global-search" type="search" placeholder="Search courses or teachers" autocomplete="off">
+        </label>
+        <button class="icon-button notification-button" type="button" aria-label="Notifications">♢<span class="notification-dot"></span></button>
+        <div class="top-avatar" aria-label="Caleb Kritzar">CK</div>
+      </header>
+
+      <main id="main-content" tabindex="-1">
+        <section class="page active" id="dashboard-page" data-page="dashboard">
+          <div class="hero">
+            <p class="eyebrow">STUDENT DASHBOARD</p>
+            <h1>Welcome back, Caleb</h1>
+            <p>You have two upcoming assignments and one completed item this week.</p>
+          </div>
+
+          <div class="section-heading">
+            <div><p class="eyebrow blue">LEARNING</p><h2>Your courses</h2></div>
+            <button class="text-button" type="button" data-route="courses">View all <span>›</span></button>
+          </div>
+          <div class="course-grid" id="dashboard-course-grid"></div>
+
+          <div class="dashboard-grid">
+            <section class="panel">
+              <div class="panel-heading"><span class="panel-icon">✓</span><h2>Upcoming assignments</h2></div>
+              <div class="assignment-list" id="dashboard-assignments"></div>
+            </section>
+            <section class="panel">
+              <div class="panel-heading"><span class="panel-icon">↻</span><h2>Recent activity</h2></div>
+              <div class="activity-list">
+                <article class="activity"><span class="activity-dot blue-dot"></span><div><strong>New English announcement</strong><p>Essay workshop details were posted.</p><small>1 hour ago</small></div></article>
+                <article class="activity"><span class="activity-dot"></span><div><strong>Assignment graded</strong><p>Your HTML profile page was reviewed.</p><small>2 hours ago</small></div></article>
+                <article class="activity"><span class="activity-dot"></span><div><strong>New study guide</strong><p>College Algebra added review material.</p><small>Yesterday</small></div></article>
+              </div>
+            </section>
+          </div>
+        </section>
+
+        <section class="page" id="courses-page" data-page="courses">
+          <div class="page-title"><p class="eyebrow blue">LEARNING</p><h1>Courses</h1><p>Open a course to review its teacher, progress, and current work.</p></div>
+          <div class="course-grid large" id="all-course-grid"></div>
+          <div class="empty-state" id="course-empty" hidden><h2>No courses found</h2><p>Try a different course or teacher name.</p></div>
+        </section>
+
+        <section class="page" id="calendar-page" data-page="calendar">
+          <div class="page-title"><p class="eyebrow blue">PLANNING</p><h1>Calendar</h1><p>Your upcoming classroom schedule.</p></div>
+          <section class="panel calendar-panel">
+            <div class="calendar-toolbar"><button class="secondary-button" type="button" id="previous-month">‹</button><h2 id="calendar-label">August 2026</h2><button class="secondary-button" type="button" id="next-month">›</button></div>
+            <div class="calendar-weekdays"><span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span></div>
+            <div class="calendar-grid" id="calendar-grid"></div>
+          </section>
+        </section>
+
+        <section class="page" id="grades-page" data-page="grades">
+          <div class="page-title"><p class="eyebrow blue">PROGRESS</p><h1>Grades</h1><p>Demonstration grades only. No real student records are stored.</p></div>
+          <div class="grade-grid" id="grade-grid"></div>
+        </section>
+
+        <section class="page" id="messages-page" data-page="messages">
+          <div class="page-title"><p class="eyebrow blue">COMMUNICATION</p><h1>Messages</h1><p>A static message-center demonstration.</p></div>
+          <section class="panel message-panel">
+            <div class="message-list">
+              <button class="message active" type="button" data-message="0"><span class="avatar small">MR</span><span><strong>Ms. Rivera</strong><small>Essay workshop reminder</small></span><time>9:15 AM</time></button>
+              <button class="message" type="button" data-message="1"><span class="avatar small green">CB</span><span><strong>Dr. Brooks</strong><small>HTML assignment feedback</small></span><time>Yesterday</time></button>
+              <button class="message" type="button" data-message="2"><span class="avatar small purple">MC</span><span><strong>Mr. Chen</strong><small>Quiz study guide</small></span><time>Mon</time></button>
+            </div>
+            <article class="message-reader" id="message-reader"></article>
+          </section>
+        </section>
+
+        <section class="page" id="settings-page" data-page="settings">
+          <div class="page-title"><p class="eyebrow blue">PREFERENCES</p><h1>Settings</h1><p>Preferences are saved only in this browser.</p></div>
+          <section class="panel settings-panel">
+            <div><h2>Appearance</h2><p>Switch between light and dark themes.</p></div>
+            <label class="switch-row"><span>Dark mode</span><input id="theme-toggle" type="checkbox"><span class="switch" aria-hidden="true"></span></label>
+          </section>
+          <section class="panel settings-panel">
+            <div><h2>Reset demonstration data</h2><p>Restore assignment completion and appearance settings.</p></div>
+            <button class="danger-button" id="reset-data" type="button">Reset data</button>
+          </section>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
