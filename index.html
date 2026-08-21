@@ -12,7 +12,7 @@
     <!-- Top Navigation -->
     <nav class="navbar">
         <div class="nav-left">
-            <div class="logo">S</logo>
+            <div class="logo">S</div>
             <div class="nav-links">
                 <a href="#">COURSES</a>
                 <a href="#">GROUPS</a>
@@ -46,10 +46,16 @@
         <!-- Center Column: Feed -->
         <main class="main-feed">
             
-            <!-- Update Box -->
+            <!-- Authentic Schoology Update Box -->
             <div class="post-box">
-                <textarea placeholder="Post an update..."></textarea>
-                <div class="post-actions">
+                <textarea id="updateInput" placeholder="Post an update..."></textarea>
+                <div class="post-toolbar">
+                    <div class="toolbar-icons">
+                        <button title="File">📎</button>
+                        <button title="Link">🔗</button>
+                        <button title="Resource">📂</button>
+                        <button title="Audio/Video">🎤</button>
+                    </div>
                     <button class="btn-primary" id="postBtn">Post</button>
                 </div>
             </div>
